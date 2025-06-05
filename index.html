@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Circle Color Change Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #222;
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    .circle {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: #888;
+      transition: background-color 0.5s ease;
+    }
+    #status {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧪 Circle Color Monitor v2</h1>
+  <div class="circle" id="circle"></div>
+  <div id="status">Color: #888</div>
+
+  <script>
+    const circle = document.getElementById("circle");
+    const status = document.getElementById("status");
+    const colors = ["#888", "#007bff", "#28a745", "#ffc107", "#dc3545"];
+    let i = 1;
+    setInterval(() => {
+      const color = colors[i % colors.length];
+      circle.style.backgroundColor = color;
+      status.textContent = "Color: " + color;
+      i++;
+    }, 5000);
+  </script>
+</body>
+</html>
